@@ -13,12 +13,12 @@ class AppStyles {
     return title!.text.size(size).color(color).align(alignment).make();
   }
 
-  static bold({
-    String? title,
-    Color? color = AppColor.textColor,
-    double? size = 20,
-    TextAlign alignment = TextAlign.center,
-  }) {
+  static bold(
+      {String? title,
+      Color? color = AppColor.textColor,
+      double? size = 20,
+      TextAlign alignment = TextAlign.center,
+      s}) {
     return title!.text
         .size(size)
         .fontWeight(FontWeight.bold)

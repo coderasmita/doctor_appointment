@@ -1,3 +1,4 @@
+import 'package:doctors_appointment/const/app_color.dart';
 import 'package:flutter/material.dart';
 
 import '../const/app_strings.dart';
@@ -29,6 +30,7 @@ class SettingsScreen extends StatelessWidget {
                   children: [
                     AppStyles.bold(
                       title: AppStrings.doctorName,
+                      color: AppColor.primaryColor,
                     ),
                     AppStyles.normal(
                       title: AppStrings.profile,
