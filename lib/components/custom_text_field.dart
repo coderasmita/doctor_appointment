@@ -1,38 +1,42 @@
-import 'package:doctors_appointment/const/app_color.dart';
 import 'package:flutter/material.dart';
+
+import '../const/app_colors.dart';
 
 class CustomTextField extends StatelessWidget {
   const CustomTextField({
     super.key,
-    required this.hintText,
+    this.obscureText,
+    this.controller,
+    this.keyboardType,
     this.prefixIcon,
     this.suffixIcon,
-    this.obscureText = false,
-    this.textEditingController,
-    this.textInputType,
+    required this.hintText,
+    this.fillColor,
   });
-
-  final String hintText;
+  final bool? obscureText;
+  final TextEditingController? controller;
+  final TextInputType? keyboardType;
   final Widget? prefixIcon;
   final Widget? suffixIcon;
-  final bool? obscureText;
-  final TextEditingController? textEditingController;
-  final TextInputType? textInputType;
+  final String hintText;
+  final Color? fillColor;
 
   @override
   Widget build(BuildContext context) {
     return TextField(
-      obscureText: obscureText!,
-      keyboardType: textInputType,
-      controller: textEditingController,
+      obscureText: obscureText ?? false,
+      controller: controller,
+      keyboardType: keyboardType,
       decoration: InputDecoration(
-        border: OutlineInputBorder(
-          borderSide: const BorderSide(color: AppColor.black),
-          borderRadius: BorderRadius.circular(12),
-        ),
-        hintText: hintText,
-        prefixIcon: prefixIcon,
+        filled: true,
+        fillColor: fillColor ?? AppColors.bgColor,
         suffixIcon: suffixIcon,
+        prefixIcon: prefixIcon,
+        hintText: hintText,
+        border: OutlineInputBorder(
+          borderSide: BorderSide.none,
+          borderRadius: BorderRadius.circular(10),
+        ),
       ),
     );
   }

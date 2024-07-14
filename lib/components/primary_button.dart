@@ -1,40 +1,40 @@
 import 'package:flutter/material.dart';
 
-import '../const/app_color.dart';
+import '../const/app_colors.dart';
 
 class PrimaryButton extends StatelessWidget {
   const PrimaryButton({
     super.key,
-    required this.title,
-    this.onPressed,
-    this.icon,
-    this.width,
+    this.onTap,
+    this.bgcolor,
+    required this.text,
     this.height,
-    this.color,
+    this.width,
+    this.fontSize,
     this.textColor,
-    this.bgColor,
   });
-  final String title;
-  final Function()? onPressed;
-  final Widget? icon;
-  final double? width;
+  final Function()? onTap;
+  final Color? bgcolor;
+  final String text;
   final double? height;
-  final Color? color;
+  final double? width;
+  final double? fontSize;
   final Color? textColor;
-  final Color? bgColor;
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: onPressed,
+      onPressed: onTap,
       style: ElevatedButton.styleFrom(
-        backgroundColor: bgColor ?? AppColor.primaryColor,
         fixedSize:
             Size(width ?? MediaQuery.sizeOf(context).width, height ?? 50),
+        backgroundColor: bgcolor ?? AppColors.primaryColor,
       ),
       child: Text(
-        title,
-        style: TextStyle(color: textColor ?? AppColor.white),
+        text,
+        style: TextStyle(
+          color: textColor ?? AppColors.whiteColor,
+        ),
       ),
     );
   }

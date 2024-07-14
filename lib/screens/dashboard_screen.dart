@@ -1,26 +1,26 @@
-import 'package:doctors_appointment/screens/schedule_screen.dart';
 import 'package:flutter/material.dart';
 
+import '../const/app_colors.dart';
+import 'appoitment_screen.dart';
+import 'articles_screen.dart';
+import 'history_screen.dart';
 import 'home_screen.dart';
-import 'messages_screen.dart';
-import 'settings_screen.dart';
+import 'profile_screen.dart';
 
 class DashboardScreen extends StatefulWidget {
-  const DashboardScreen({
-    super.key,
-  });
+  const DashboardScreen({super.key});
 
   @override
   State<DashboardScreen> createState() => _DashboardScreenState();
 }
 
 class _DashboardScreenState extends State<DashboardScreen> {
-  //body all screen
   List<Widget> body = [
     const HomeScreen(),
-    const MessagesScreen(),
-    const ScheduleScreen(),
-    const SettingsScreen(),
+    const AppoitmentScreen(),
+    const ArticlesScreen(),
+    const HistoryScreen(),
+    const ProfileScreen(),
   ];
   int currentIndex = 0;
 
@@ -29,31 +29,36 @@ class _DashboardScreenState extends State<DashboardScreen> {
     return Scaffold(
       body: body.elementAt(currentIndex),
       bottomNavigationBar: BottomNavigationBar(
-        selectedItemColor: Colors.blue,
-        unselectedItemColor: Colors.grey,
+        selectedItemColor: AppColors.primaryColor,
+        unselectedItemColor: AppColors.blackColor,
+        showSelectedLabels: true,
         showUnselectedLabels: true,
-        onTap: (value) {
+        onTap: (value) => {
           setState(() {
             currentIndex = value;
-          });
+          })
         },
         currentIndex: currentIndex,
-        items: const <BottomNavigationBarItem>[
+        items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.message_sharp),
-            label: 'Messages',
+            label: "Home",
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.calendar_month),
-            label: 'Schedule',
+            label: "Appointments",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: 'Settings',
+            icon: Icon(Icons.history),
+            label: "History",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.article),
+            label: "Articles",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: "Profile",
           ),
         ],
       ),

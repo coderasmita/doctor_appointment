@@ -1,11 +1,12 @@
 import 'package:doctors_appointment/const/app_assets.dart';
-import 'package:doctors_appointment/const/app_color.dart';
+
 import 'package:doctors_appointment/const/app_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../const/app_colors.dart';
 import '../const/app_strings.dart';
-import '../const/app_style.dart';
+
 import 'login_screen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -35,8 +36,8 @@ class _SplashScreenState extends State<SplashScreen> {
           Padding(
             padding: const EdgeInsets.only(right: 16),
             child: AppText(
-              title: AppStrings.skip.toUpperCase(),
-              color: AppColor.primaryColor,
+              text: AppStrings.skip.toUpperCase(),
+              color: AppColors.primaryColor,
             ),
           ),
         ],
@@ -50,16 +51,16 @@ class _SplashScreenState extends State<SplashScreen> {
             const SizedBox(
               height: 20,
             ),
-            AppStyles.bold(
-              title: AppStrings.doctorsAppointment,
-              color: AppColor.primaryColor,
+            const AppText(
+              text: "Doctors Appointment",
+              color: AppColors.primaryColor,
             ),
             const SizedBox(
               height: 10,
             ),
-            AppStyles.normal(
-              title: AppStrings.appointYourDoctor,
-              color: AppColor.primaryColor,
+            const AppText(
+              text: "Appoint Your Doctor",
+              color: AppColors.primaryColor,
             ),
             const SizedBox(
               height: 10,

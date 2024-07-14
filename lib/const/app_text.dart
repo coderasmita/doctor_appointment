@@ -1,34 +1,23 @@
-import 'package:doctors_appointment/const/app_color.dart';
 import 'package:flutter/material.dart';
+
+import 'app_colors.dart';
 
 class AppText extends StatelessWidget {
   const AppText(
-      {super.key,
-      this.title,
-      this.color = AppColor.textColor,
-      this.size = 14,
-      this.alignment = TextAlign.center,
-      this.fontWeight = FontWeight.normal});
-
-  final String? title;
-  final Color? color;
+      {super.key, required this.text, this.size, this.weight, this.color});
+  final String text;
   final double? size;
-  final TextAlign alignment;
-  final FontWeight fontWeight;
+  final FontWeight? weight;
+  final Color? color;
 
   @override
   Widget build(BuildContext context) {
     return Text(
-      title!,
-      textAlign: alignment,
-      maxLines: 1,
+      text,
       style: TextStyle(
-        color: color,
-        fontSize: size,
-        fontWeight: fontWeight,
-        decoration: TextDecoration.none,
-        decorationStyle: TextDecorationStyle.dotted,
-        overflow: TextOverflow.ellipsis,
+        fontSize: size ?? 16,
+        fontWeight: weight ?? FontWeight.normal,
+        color: color ?? AppColors.blackColor,
       ),
     );
   }
