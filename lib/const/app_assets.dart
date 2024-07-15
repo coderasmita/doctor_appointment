@@ -5,6 +5,14 @@ class AppAssets {
   /// assets/images/app_logo.png
   static const String imagesAppLogo = "assets/images/app_logo.png";
 
+  /// Assets for imagesChildhood
+  /// assets/images/childhood.jfif
+  static const String imagesChildhood = "assets/images/childhood.jfif";
+
+  /// Assets for imagesCovid19
+  /// assets/images/covid_19.jfif
+  static const String imagesCovid19 = "assets/images/covid_19.jfif";
+
   /// Assets for imagesDarkMode
   /// assets/images/dark_mode.png
   static const String imagesDarkMode = "assets/images/dark_mode.png";
@@ -41,6 +49,10 @@ class AppAssets {
   /// assets/images/EyeClosed.png
   static const String imagesEyeClosed = "assets/images/EyeClosed.png";
 
+  /// Assets for imagesHealthFood
+  /// assets/images/health_food.jfif
+  static const String imagesHealthFood = "assets/images/health_food.jfif";
+
   /// Assets for imagesHeart
   /// assets/images/Heart.png
   static const String imagesHeart = "assets/images/Heart.png";
@@ -72,6 +84,10 @@ class AppAssets {
   /// Assets for imagesLogout
   /// assets/images/Logout.png
   static const String imagesLogout = "assets/images/Logout.png";
+
+  /// Assets for imagesMedicine
+  /// assets/images/medicine.jfif
+  static const String imagesMedicine = "assets/images/medicine.jfif";
 
   /// Assets for imagesNotification
   /// assets/images/notification.png

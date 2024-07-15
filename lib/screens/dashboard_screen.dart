@@ -18,8 +18,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
   List<Widget> body = [
     const HomeScreen(),
     const AppoitmentScreen(),
-    const ArticlesScreen(),
     const HistoryScreen(),
+    const ArticlesScreen(),
     const ProfileScreen(),
   ];
   int currentIndex = 0;
