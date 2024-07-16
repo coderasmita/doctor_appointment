@@ -1,8 +1,7 @@
-import 'package:doctors_appointment/components/text_buttons.dart';
-import 'package:doctors_appointment/models/articles_model.dart';
+import 'package:doctors_appointment/models/history_model.dart';
+import 'package:doctors_appointment/models/history_voicecall_model.dart';
 import 'package:flutter/material.dart';
 
-import '../components/primary_button.dart';
 import '../const/app_assets.dart';
 import '../const/app_colors.dart';
 import '../const/app_text.dart';
@@ -18,7 +17,7 @@ class HistoryScreen extends StatelessWidget {
         backgroundColor: AppColors.whiteColor,
         automaticallyImplyLeading: false,
         title: const AppText(
-          text: "Articles",
+          text: "History",
           weight: FontWeight.w500,
           size: 18,
         ),
@@ -30,165 +29,190 @@ class HistoryScreen extends StatelessWidget {
           ),
           IconButton(
             onPressed: () {},
-            icon: const Icon(Icons.book),
+            icon: const Icon(Icons.more_vert),
           ),
         ],
       ),
-      body: ListView(
-        children: [
-          Column(
-            children: [
-              // Padding(
-              //     padding:
-              //         EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0)),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      body: DefaultTabController(
+        length: 3,
+        child: Column(
+          children: [
+            const TabBar(
+              indicatorSize: TabBarIndicatorSize.tab,
+              labelColor: AppColors.primaryColor,
+              indicatorColor: AppColors.primaryColor,
+              tabs: [
+                Tab(text: 'Message'),
+                Tab(text: 'Voice Call'),
+                Tab(text: 'Video Call'),
+              ],
+            ),
+            Expanded(
+              child: TabBarView(
                 children: [
-                  AppText(
-                    text: "Trending",
-                    weight: FontWeight.bold,
+                  // 1st body
+                  ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: HistoryModel.historyList.length,
+                    itemBuilder: (context, index) {
+                      return ListTile(
+                        leading: CircleAvatar(
+                          backgroundImage:
+                              AssetImage(HistoryModel.historyList[index].image),
+                        ),
+                        title: AppText(
+                          text: HistoryModel.historyList[index].name,
+                          size: 16,
+                          weight: FontWeight.bold,
+                        ),
+                        subtitle: AppText(
+                          text: HistoryModel.historyList[index].message,
+                          size: 12,
+                        ),
+                        trailing: AppText(
+                          text: HistoryModel.historyList[index].time,
+                          size: 12,
+                        ),
+                      );
+                    },
                   ),
-                  TextButtons(
-                    onTap: () {},
-                    text: "See All",
-                    textColor: AppColors.primaryColor,
-                  ),
-                ],
-              ),
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: [
-                    Image.asset(AppAssets.imagesHealthFood),
-                    SizedBox(
-                      width: 15,
-                    ),
-                    Image.asset(AppAssets.imagesHealthFood),
-                  ],
-                ),
-              ),
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: [
-                    SizedBox(
-                      width: MediaQuery.sizeOf(context).width * 0.65,
-                      child: const AppText(
-                        text:
-                            "Adding salt to your food May Increase Risk of pre",
-                        weight: FontWeight.bold,
-                      ),
-                    ),
-                    SizedBox(
-                      width: MediaQuery.sizeOf(context).width * 0.65,
-                      child: AppText(
-                        text:
-                            "COVID- 19 Reinfection in May Increase Risk of pre",
-                        weight: FontWeight.bold,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  AppText(
-                    text: "Articals",
-                    weight: FontWeight.bold,
-                  ),
-                  TextButtons(
-                    onTap: () {},
-                    text: "See All",
-                    textColor: AppColors.primaryColor,
-                  ),
-                ],
-              ),
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: [
-                    PrimaryButton(
-                      text: "Newest",
-                      onTap: () {},
-                      height: 30,
-                      width: 150,
-                      bgcolor: AppColors.primaryColor,
-                    ),
-                    const SizedBox(
-                      width: 5,
-                    ),
-                    PrimaryButton(
-                      text: "Health",
-                      onTap: () {},
-                      height: 30,
-                      width: 150,
-                      bgcolor: AppColors.primaryColor,
-                    ),
-                    const SizedBox(
-                      width: 5,
-                    ),
-                    PrimaryButton(
-                      text: "Covid-19",
-                      onTap: () {},
-                      height: 30,
-                      width: 150,
-                      bgcolor: AppColors.primaryColor,
-                    ),
-                    const SizedBox(
-                      width: 5,
-                    ),
-                    PrimaryButton(
-                      text: "Lifestyle",
-                      onTap: () {},
-                      height: 30,
-                      width: 150,
-                      bgcolor: AppColors.primaryColor,
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(
-                height: 15,
-              ),
-              ListView.builder(
-                  physics: NeverScrollableScrollPhysics(),
-                  shrinkWrap: true,
-                  itemCount: 3,
-                  itemBuilder: (context, index) {
-                    return ListTile(
-                      leading:
-                          Image.asset(ArticlesModel.articlesList[index].image),
-                      title: Column(
-                        children: [
-                          AppText(
-                            text: ArticlesModel.articlesList[index].title,
-                            color: AppColors.blackColor,
-                            size: 8,
+                  // const Text('2nd body'),
+                  ListView.separated(
+                    shrinkWrap: true,
+                    padding: const EdgeInsets.all(16),
+                    itemCount: HistoryModel.historyList.length,
+                    separatorBuilder: (context, index) =>
+                        const SizedBox(height: 12),
+                    itemBuilder: (context, index) {
+                      return Container(
+                        padding: EdgeInsets.all(12),
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            color: AppColors.greyColor,
                           ),
-                          TextButton(
-                            onPressed: () {},
-                            child: Text(
-                              ArticlesModel.articlesList[index].subtitle,
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: AppColors.blackColor,
+                          borderRadius: BorderRadius.circular(16),
+                        ),
+                        child: Row(
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(8),
+                              child: Image.asset(
+                                  height: 100,
+                                  width: 100,
+                                  fit: BoxFit.cover,
+                                  HistoryVoicecallModel
+                                      .historyVoiceCallList[index].image),
+                            ),
+                            const SizedBox(
+                              width: 10,
+                            ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                AppText(
+                                  text: HistoryVoicecallModel
+                                      .historyVoiceCallList[index].name,
+                                  weight: FontWeight.bold,
+                                ),
+                                AppText(
+                                  text: HistoryVoicecallModel
+                                      .historyVoiceCallList[index].time,
+                                  size: 10,
+                                ),
+                              ],
+                            ),
+                            const Spacer(),
+                            CircleAvatar(
+                              radius: 20,
+                              backgroundColor:
+                                  AppColors.primaryColor.withOpacity(0.2),
+                              child: CircleAvatar(
+                                radius: 10,
+                                backgroundColor: AppColors.primaryColor,
+                                child: Icon(
+                                  HistoryVoicecallModel
+                                      .historyVoiceCallList[index].icon,
+                                  size: 10,
+                                  color: AppColors.whiteColor,
+                                ),
                               ),
                             ),
+                          ],
+                        ),
+                      );
+                    },
+                  ),
+                  // const Text('3rd body'),
+                  ListView.separated(
+                    shrinkWrap: true,
+                    padding: const EdgeInsets.all(16),
+                    itemCount: HistoryModel.historyList.length,
+                    separatorBuilder: (context, index) =>
+                        const SizedBox(height: 12),
+                    itemBuilder: (context, index) {
+                      return Container(
+                        padding: EdgeInsets.all(12),
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            color: AppColors.greyColor,
                           ),
-                          PrimaryButton(
-                            text: ArticlesModel.articlesList[index].textButton,
-                            width: 110,
-                            height: 50,
-                            textColor: AppColors.primaryColor,
-                          )
-                        ],
-                      ),
-                    );
-                  })
-            ],
-          ),
-        ],
+                          borderRadius: BorderRadius.circular(16),
+                        ),
+                        child: Row(
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(8),
+                              child: Image.asset(
+                                  height: 100,
+                                  width: 100,
+                                  fit: BoxFit.cover,
+                                  HistoryVoicecallModel
+                                      .historyVoiceCallList[index].image),
+                            ),
+                            const SizedBox(
+                              width: 10,
+                            ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                AppText(
+                                  text: HistoryVoicecallModel
+                                      .historyVoiceCallList[index].name,
+                                  weight: FontWeight.bold,
+                                ),
+                                AppText(
+                                  text: HistoryVoicecallModel
+                                      .historyVoiceCallList[index].time,
+                                  size: 10,
+                                ),
+                              ],
+                            ),
+                            const Spacer(),
+                            CircleAvatar(
+                              radius: 20,
+                              backgroundColor:
+                                  AppColors.primaryColor.withOpacity(0.2),
+                              child: CircleAvatar(
+                                radius: 10,
+                                backgroundColor: AppColors.primaryColor,
+                                child: Icon(
+                                  HistoryVoicecallModel
+                                      .historyVoiceCallList[index].icon,
+                                  size: 10,
+                                  color: AppColors.whiteColor,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      );
+                    },
+                  ),
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

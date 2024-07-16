@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../const/app_colors.dart';
-import 'appoitment_screen.dart';
+import 'appointment_screen.dart';
 import 'articles_screen.dart';
 import 'history_screen.dart';
 import 'home_screen.dart';
@@ -17,7 +17,7 @@ class DashboardScreen extends StatefulWidget {
 class _DashboardScreenState extends State<DashboardScreen> {
   List<Widget> body = [
     const HomeScreen(),
-    const AppoitmentScreen(),
+    const Appoitnments(),
     const HistoryScreen(),
     const ArticlesScreen(),
     const ProfileScreen(),
