@@ -1,8 +1,8 @@
 import '../const/app_assets.dart';
 
 class DoctorSpecialistModel {
-  String name;
-  String icon;
+  final String name;
+  final String icon;
 
   DoctorSpecialistModel({required this.name, required this.icon});
   static List<DoctorSpecialistModel> doctorSpeciaList = [

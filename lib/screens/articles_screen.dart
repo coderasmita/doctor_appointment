@@ -149,61 +149,61 @@ class ArticlesScreen extends StatelessWidget {
                 height: 15,
               ),
               ListView.separated(
-                  physics: const NeverScrollableScrollPhysics(),
-                  shrinkWrap: true,
-                  itemCount: ArticlesModel.articlesList.length,
-                  separatorBuilder: (context, index) => const SizedBox(
-                        height: 10,
+                physics: const NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                itemCount: ArticlesModel.articlesList.length,
+                separatorBuilder: (context, index) => const SizedBox(
+                  height: 10,
+                ),
+                itemBuilder: (context, index) {
+                  return Row(
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(8),
+                        child: Image.asset(
+                          height: 100,
+                          width: 100,
+                          fit: BoxFit.cover,
+                          ArticlesModel.articlesList[index].image,
+                        ),
                       ),
-                  itemBuilder: (context, index) {
-                    return Row(
-                      children: [
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(8),
-                          child: Image.asset(
-                            height: 100,
-                            width: 100,
-                            fit: BoxFit.cover,
-                            ArticlesModel.articlesList[index].image,
+                      const SizedBox(width: 10),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          AppText(
+                            text: ArticlesModel.articlesList[index].title,
+                            size: 8,
                           ),
-                        ),
-                        const SizedBox(width: 10),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            AppText(
-                              text: ArticlesModel.articlesList[index].title,
-                              size: 8,
+                          SizedBox(
+                            width: MediaQuery.sizeOf(context).width * 0.50,
+                            child: AppText(
+                              text: ArticlesModel.articlesList[index].subtitle,
+                              weight: FontWeight.bold,
+                              size: 12,
                             ),
-                            SizedBox(
-                              width: MediaQuery.sizeOf(context).width * 0.50,
-                              child: AppText(
-                                text:
-                                    ArticlesModel.articlesList[index].subtitle,
-                                weight: FontWeight.bold,
-                                size: 12,
-                              ),
+                          ),
+                          Container(
+                            padding: const EdgeInsets.all(6),
+                            alignment: Alignment.center,
+                            height: 26,
+                            decoration: BoxDecoration(
+                              color: AppColors.primaryColor.withOpacity(0.25),
+                              borderRadius: BorderRadius.circular(4),
                             ),
-                            Container(
-                              padding: const EdgeInsets.all(6),
-                              alignment: Alignment.center,
-                              height: 26,
-                              decoration: BoxDecoration(
-                                color: AppColors.primaryColor.withOpacity(0.25),
-                                borderRadius: BorderRadius.circular(4),
-                              ),
-                              child: AppText(
-                                text: ArticlesModel
-                                    .articlesList[index].textButton,
-                                color: AppColors.primaryColor,
-                                size: 10,
-                              ),
+                            child: AppText(
+                              text:
+                                  ArticlesModel.articlesList[index].textButton,
+                              color: AppColors.primaryColor,
+                              size: 10,
                             ),
-                          ],
-                        ),
-                      ],
-                    );
-                  })
+                          ),
+                        ],
+                      ),
+                    ],
+                  );
+                },
+              )
             ],
           ),
         ],

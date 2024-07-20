@@ -1,10 +1,10 @@
 import 'package:doctors_appointment/const/app_assets.dart';
 
 class ArticlesModel {
-  String image;
-  String title;
-  String subtitle;
-  String textButton;
+  final String image;
+  final String title;
+  final String subtitle;
+  final String textButton;
 
   ArticlesModel(
       {required this.image,

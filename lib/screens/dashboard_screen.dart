@@ -17,7 +17,7 @@ class DashboardScreen extends StatefulWidget {
 class _DashboardScreenState extends State<DashboardScreen> {
   List<Widget> body = [
     const HomeScreen(),
-    const Appoitnments(),
+    const Appointments(),
     const HistoryScreen(),
     const ArticlesScreen(),
     const ProfileScreen(),

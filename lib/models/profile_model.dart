@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import '../const/app_assets.dart';
 
 class ProfileModel {
-  String title;
-  String leading;
-  Widget trailing;
+  final String title;
+  final String leading;
+  final Widget trailing;
 
   ProfileModel(this.title, this.leading, this.trailing);
 

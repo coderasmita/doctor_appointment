@@ -1,8 +1,8 @@
 import 'package:doctors_appointment/const/app_assets.dart';
 
 class ArticlesTrendingModel {
-  String image;
-  String text;
+  final String image;
+  final String text;
 
   ArticlesTrendingModel({required this.image, required this.text});
   static List<ArticlesTrendingModel> articlesTrandingList = [

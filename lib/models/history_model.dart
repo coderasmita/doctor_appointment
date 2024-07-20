@@ -1,10 +1,10 @@
 import 'package:doctors_appointment/const/app_assets.dart';
 
 class HistoryModel {
-  String name;
-  String message;
-  String time;
-  String image;
+  final String name;
+  final String message;
+  final String time;
+  final String image;
 
   HistoryModel({
     required this.name,
