@@ -10,7 +10,7 @@ class PrimaryButton extends StatelessWidget {
     required this.text,
     this.height,
     this.width,
-    this.fontSize,
+    this.textSize,
     this.textColor,
   });
   final Function()? onTap;
@@ -18,7 +18,7 @@ class PrimaryButton extends StatelessWidget {
   final String text;
   final double? height;
   final double? width;
-  final double? fontSize;
+  final double? textSize;
   final Color? textColor;
 
   @override
@@ -34,6 +34,7 @@ class PrimaryButton extends StatelessWidget {
         text,
         style: TextStyle(
           color: textColor ?? AppColors.whiteColor,
+          fontSize: textSize ?? 16,
         ),
       ),
     );

@@ -1,6 +1,10 @@
 import 'package:doctors_appointment/components/primary_button.dart';
 import 'package:doctors_appointment/models/appointment_model.dart';
+import 'package:doctors_appointment/screens/reschedule_appointment_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import 'package:velocity_x/velocity_x.dart';
 
 import '../const/app_assets.dart';
 import '../const/app_colors.dart';
@@ -13,6 +17,7 @@ class Appointments extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: AppColors.whiteColor,
         automaticallyImplyLeading: false,
@@ -63,7 +68,11 @@ class Appointments extends StatelessWidget {
                       return Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Card(
+                          color: AppColors.whiteColor,
                           shape: RoundedRectangleBorder(
+                            side: BorderSide(
+                              color: AppColors.greyColor.withOpacity(0.2),
+                            ),
                             borderRadius: BorderRadius.circular(10),
                           ),
                           child: Padding(
@@ -77,8 +86,8 @@ class Appointments extends StatelessWidget {
                                       borderRadius: BorderRadius.circular(8),
                                       child: Image.asset(
                                         fit: BoxFit.cover,
-                                        height: 150,
-                                        width: 100,
+                                        height: 80,
+                                        width: 80,
                                         AppointmentModel
                                             .appointmentList[index].doctorImage,
                                       ),
@@ -162,26 +171,90 @@ class Appointments extends StatelessWidget {
                                   children: [
                                     Expanded(
                                       child: PrimaryButton(
-                                        height: 50,
+                                        height: 30,
                                         bgcolor: AppColors.whiteColor,
                                         textColor: AppColors.primaryColor,
                                         text: AppointmentModel
                                             .appointmentList[index]
                                             .textButtonOne,
-                                        onTap: () {},
+                                        textSize: 12,
+                                        onTap: () {
+                                          VxBottomSheet.bottomSheetView(
+                                            backgroundColor:
+                                                AppColors.whiteColor,
+                                            isSafeAreaFromBottom: true,
+                                            context,
+                                            child: Padding(
+                                              padding: const EdgeInsets.all(16),
+                                              child: Column(
+                                                children: [
+                                                  const AppText(
+                                                    text: "Cancel Appointment",
+                                                    color: AppColors.redColor,
+                                                    weight: FontWeight.bold,
+                                                  ),
+                                                  const Expanded(
+                                                    child: Divider(
+                                                      thickness: 0.5,
+                                                      color:
+                                                          AppColors.greyColor,
+                                                    ),
+                                                  ),
+                                                  const AppText(
+                                                    text:
+                                                        "Are you sure you want to cancel your appointment?",
+                                                  ),
+                                                  const AppText(
+                                                    text:
+                                                        "Only 50% of the funds will be returned to your account",
+                                                  ),
+                                                  Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceEvenly,
+                                                    children: [
+                                                      PrimaryButton(
+                                                        height: 30,
+                                                        width: 150,
+                                                        text: "Back",
+                                                        textColor: AppColors
+                                                            .whiteColor,
+                                                        onTap: () {
+                                                          Navigator.pop(
+                                                              context);
+                                                        },
+                                                      ),
+                                                      PrimaryButton(
+                                                        onTap: () {
+                                                          Get.to(() =>
+                                                              const RescheduleAppointmentScreen());
+                                                        },
+                                                        height: 30,
+                                                        width: 150,
+                                                        text: "Yes, Cancel",
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          );
+                                        },
                                       ),
                                     ),
                                     const SizedBox(
                                       width: 5,
                                     ),
-                                    Expanded(
-                                      child: PrimaryButton(
-                                        height: 50,
-                                        text: AppointmentModel
-                                            .appointmentList[index]
-                                            .textButtonTwo,
-                                        onTap: () {},
-                                      ),
+                                    PrimaryButton(
+                                      height: 30,
+                                      width: 135,
+                                      text: AppointmentModel
+                                          .appointmentList[index].textButtonTwo,
+                                      textSize: 12,
+                                      onTap: () {
+                                        Get.to(() =>
+                                            const RescheduleAppointmentScreen());
+                                      },
                                     ),
                                   ],
                                 ),
@@ -200,6 +273,7 @@ class Appointments extends StatelessWidget {
                       return Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Card(
+                          color: AppColors.whiteColor,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10),
                           ),
@@ -301,26 +375,27 @@ class Appointments extends StatelessWidget {
                                   children: [
                                     Expanded(
                                       child: PrimaryButton(
-                                        height: 50,
+                                        height: 30,
+                                        width: 150,
                                         bgcolor: AppColors.whiteColor,
                                         textColor: AppColors.primaryColor,
                                         text: AppointmentCompletedModel
                                             .appointmentList[index]
                                             .textButtonOne,
+                                        textSize: 12,
                                         onTap: () {},
                                       ),
                                     ),
                                     const SizedBox(
                                       width: 5,
                                     ),
-                                    Expanded(
-                                      child: PrimaryButton(
-                                        height: 50,
-                                        text: AppointmentCompletedModel
-                                            .appointmentList[index]
-                                            .textButtonTwo,
-                                        onTap: () {},
-                                      ),
+                                    PrimaryButton(
+                                      height: 30,
+                                      width: 150,
+                                      text: AppointmentCompletedModel
+                                          .appointmentList[index].textButtonTwo,
+                                      textSize: 12,
+                                      onTap: () {},
                                     ),
                                   ],
                                 ),
@@ -331,6 +406,7 @@ class Appointments extends StatelessWidget {
                       );
                     },
                   ),
+
                   const Center(child: Text('No Cancelled Appointments')),
                 ],
               ),

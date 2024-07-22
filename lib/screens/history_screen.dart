@@ -85,7 +85,7 @@ class HistoryScreen extends StatelessWidget {
                         const SizedBox(height: 12),
                     itemBuilder: (context, index) {
                       return Container(
-                        padding: EdgeInsets.all(12),
+                        padding: const EdgeInsets.all(12),
                         decoration: BoxDecoration(
                           border: Border.all(
                             color: AppColors.greyColor,
@@ -151,7 +151,7 @@ class HistoryScreen extends StatelessWidget {
                         const SizedBox(height: 12),
                     itemBuilder: (context, index) {
                       return Container(
-                        padding: EdgeInsets.all(12),
+                        padding: const EdgeInsets.all(12),
                         decoration: BoxDecoration(
                           border: Border.all(
                             color: AppColors.greyColor,
