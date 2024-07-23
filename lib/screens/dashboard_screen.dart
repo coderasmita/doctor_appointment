@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../const/app_colors.dart';
-import 'appointment_screen.dart';
+import 'appointment_screen/appointment_screen.dart';
 import 'articles_screen.dart';
 import 'history_screen.dart';
 import 'home_screen.dart';

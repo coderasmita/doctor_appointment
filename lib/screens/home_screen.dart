@@ -1,4 +1,6 @@
+import 'package:doctors_appointment/screens/doctors/top_doctor_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../components/custom_text_field.dart';
 import '../components/primary_button.dart';
@@ -7,8 +9,9 @@ import '../const/app_assets.dart';
 import '../const/app_colors.dart';
 import '../const/app_text.dart';
 
-import '../models/doctor_speciality_model.dart';
+import '../models/doctors/doctor_speciality_model.dart';
 import '../models/top_doctors_model.dart';
+import 'doctors/doctor_details_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -174,10 +177,13 @@ class _HomeScreenState extends State<HomeScreen> {
                       children: [
                         CircleAvatar(
                           radius: 20,
-                          backgroundColor: AppColors.successColor,
+                          backgroundColor:
+                              AppColors.primaryColor.withOpacity(0.1),
                           child: Image.asset(
+                            height: 20,
                             scale: 2.6,
                             DoctorSpecialistModel.doctorSpeciaList[index].icon,
+                            color: AppColors.primaryColor,
                           ),
                         ),
                         AppText(
@@ -199,7 +205,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   TextButtons(
                     text: "See All",
-                    onTap: () {},
+                    onTap: () {
+                      Get.to(() => const TopDoctorScreen());
+                    },
                     textColor: AppColors.primaryColor,
                   ),
                 ],
@@ -291,66 +299,77 @@ class _HomeScreenState extends State<HomeScreen> {
                   physics: const NeverScrollableScrollPhysics(),
                   itemCount: TopDoctorModel.topDoctorList.length,
                   itemBuilder: (context, index) {
-                    return Card(
-                      elevation: 0,
-                      shape: const RoundedRectangleBorder(
-                        side: BorderSide(
-                          color: AppColors.greyColor,
-                        ),
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(16),
-                        ),
+                    return InkWell(
+                      onTap: () => Get.to(
+                        () => const DoctorDetailsScreen(),
                       ),
-                      borderOnForeground: true,
-                      color: AppColors.whiteColor,
-                      child: Padding(
-                        padding: const EdgeInsets.all(12),
-                        child: Row(
-                          children: [
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(10),
-                              child: Image.asset(
-                                  height: 100,
-                                  width: 70,
-                                  fit: BoxFit.cover,
-                                  TopDoctorModel.topDoctorList[index].image),
-                            ),
-                            const SizedBox(
-                              width: 15,
-                            ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                      child: Card(
+                        elevation: 0,
+                        shape: RoundedRectangleBorder(
+                          side: BorderSide(
+                            color: AppColors.greyColor.withOpacity(0.3),
+                          ),
+                          borderRadius: const BorderRadius.all(
+                            Radius.circular(16),
+                          ),
+                        ),
+                        borderOnForeground: true,
+                        color: AppColors.whiteColor,
+                        child: Padding(
+                          padding: const EdgeInsets.all(12),
+                          child: Row(
+                            children: [
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(10),
+                                child: Image.asset(
+                                    height: 100,
+                                    width: 70,
+                                    fit: BoxFit.cover,
+                                    TopDoctorModel.topDoctorList[index].image),
+                              ),
+                              const SizedBox(
+                                width: 15,
+                              ),
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        AppText(
+                                          text: TopDoctorModel
+                                              .topDoctorList[index].name,
+                                          weight: FontWeight.w600,
+                                        ),
+                                        IconButton(
+                                          onPressed: () {},
+                                          icon: Image.asset(
+                                            scale: 1.65,
+                                            AppAssets.imagesHeart,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    SizedBox(
+                                      width: MediaQuery.sizeOf(context).width -
+                                          200,
+                                      child: const Divider(),
+                                    ),
                                     AppText(
                                       text: TopDoctorModel
-                                          .topDoctorList[index].name,
-                                      weight: FontWeight.w600,
+                                          .topDoctorList[index].designation,
+                                      // color: AppColors.greyColor,
                                     ),
-                                    Image.asset(
-                                      scale: 1.65,
-                                      AppAssets.imagesHeart,
-                                    ),
+                                    AppText(
+                                        text: TopDoctorModel
+                                            .topDoctorList[index].rating),
                                   ],
                                 ),
-                                SizedBox(
-                                  width: MediaQuery.sizeOf(context).width - 200,
-                                  child: const Divider(),
-                                ),
-                                AppText(
-                                  text: TopDoctorModel
-                                      .topDoctorList[index].designation,
-                                  // color: AppColors.greyColor,
-                                ),
-                                AppText(
-                                    text: TopDoctorModel
-                                        .topDoctorList[index].rating),
-                              ],
-                            ),
-                          ],
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     );

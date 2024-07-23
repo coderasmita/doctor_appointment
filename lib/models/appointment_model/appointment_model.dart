@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../const/app_assets.dart';
+import '../../const/app_assets.dart';
 
-class AppointmentCompletedModel {
+class AppointmentModel {
   final String doctorName;
   final String appointmentType;
   final String text;
@@ -12,7 +12,7 @@ class AppointmentCompletedModel {
   final String textButtonOne;
   final String textButtonTwo;
 
-  AppointmentCompletedModel({
+  AppointmentModel({
     required this.doctorName,
     required this.appointmentType,
     required this.text,
@@ -23,66 +23,66 @@ class AppointmentCompletedModel {
     required this.textButtonTwo,
   });
 
-  static List<AppointmentCompletedModel> appointmentList = [
-    AppointmentCompletedModel(
+  static List<AppointmentModel> appointmentList = [
+    AppointmentModel(
       doctorName: "Dr. Asmita Koirala",
       appointmentType: "Messaging -",
       appointmentTime: "Today | 16:00 PM",
       doctorImage: AppAssets.imagesDoctor,
       icon: Icons.message,
-      text: "Completed",
-      textButtonOne: "Book Again",
-      textButtonTwo: "Leave a Review",
+      text: "Upcoming",
+      textButtonOne: "Cancel Appointment",
+      textButtonTwo: "Reschedule",
     ),
-    AppointmentCompletedModel(
+    AppointmentModel(
       doctorName: "Dr. Shristi Pokharel",
       appointmentType: "Video Call -",
       appointmentTime: "Today | 16:00 PM",
       doctorImage: AppAssets.imagesDoctor1,
       icon: Icons.video_call,
-      text: "Completed",
-      textButtonOne: "Book Again",
-      textButtonTwo: "Leave a Review",
+      text: "Upcoming",
+      textButtonOne: "Cancel Appointment",
+      textButtonTwo: "Reschedule",
     ),
-    AppointmentCompletedModel(
+    AppointmentModel(
       doctorName: "Dr. Parbati Nepal",
       appointmentType: "Video Call -",
       appointmentTime: "Today | 16:00 PM",
       doctorImage: AppAssets.imagesDoctor2,
       icon: Icons.video_call,
-      text: "Completed",
-      textButtonOne: "Book Again",
-      textButtonTwo: "Leave a Review",
+      text: "Upcoming",
+      textButtonOne: "Cancel Appointment",
+      textButtonTwo: "Reschedule",
     ),
-    AppointmentCompletedModel(
+    AppointmentModel(
       doctorName: "Dr. Samir Koirala",
       appointmentType: "Video Call -",
       appointmentTime: "Today | 16:00 PM",
       doctorImage: AppAssets.imagesDoctor3,
       icon: Icons.video_call,
-      text: "Completed",
-      textButtonOne: "Book Again",
-      textButtonTwo: "Leave a Review",
+      text: "Upcoming",
+      textButtonOne: "Cancel Appointment",
+      textButtonTwo: "Reschedule",
     ),
-    AppointmentCompletedModel(
+    AppointmentModel(
       doctorName: "Dr. Krish Khanal",
       appointmentType: "Video Call -",
       appointmentTime: "Today | 16:00 PM",
       doctorImage: AppAssets.imagesDoctor4,
       icon: Icons.video_call,
-      text: "Completed",
-      textButtonOne: "Book Again",
-      textButtonTwo: "Leave a Review",
+      text: "Upcoming",
+      textButtonOne: "Cancel Appointment",
+      textButtonTwo: "Reschedule",
     ),
-    AppointmentCompletedModel(
+    AppointmentModel(
       doctorName: "Dr. Susmita Koirala",
       appointmentType: "Video Call -",
       appointmentTime: "Today | 16:00 PM",
       doctorImage: AppAssets.imagesUser,
       icon: Icons.video_call,
-      text: "Completed",
-      textButtonOne: "Book Again",
-      textButtonTwo: "Leave a Review",
+      text: "Upcoming",
+      textButtonOne: "Cancel Appointment",
+      textButtonTwo: "Reschedule",
     ),
   ];
 }

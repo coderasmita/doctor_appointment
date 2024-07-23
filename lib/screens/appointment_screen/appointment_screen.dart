@@ -1,15 +1,16 @@
 import 'package:doctors_appointment/components/primary_button.dart';
-import 'package:doctors_appointment/models/appointment_model.dart';
-import 'package:doctors_appointment/screens/reschedule_appointment_screen.dart';
+import 'package:doctors_appointment/models/appointment_model/appointment_model.dart';
+import 'package:doctors_appointment/screens/appointment_screen/cancel_appointment_screen.dart';
+import 'package:doctors_appointment/screens/appointment_screen/reschedule_appointment_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'package:velocity_x/velocity_x.dart';
 
-import '../const/app_assets.dart';
-import '../const/app_colors.dart';
-import '../const/app_text.dart';
-import '../models/appointment_completed_model.dart';
+import '../../const/app_assets.dart';
+import '../../const/app_colors.dart';
+import '../../const/app_text.dart';
+import '../../models/appointment_model/appointment_completed_model.dart';
 
 class Appointments extends StatelessWidget {
   const Appointments({super.key});
@@ -227,7 +228,7 @@ class Appointments extends StatelessWidget {
                                                       PrimaryButton(
                                                         onTap: () {
                                                           Get.to(() =>
-                                                              const RescheduleAppointmentScreen());
+                                                              const CancelAppointmentScreen());
                                                         },
                                                         height: 30,
                                                         width: 150,
