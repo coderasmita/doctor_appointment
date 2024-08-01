@@ -9,6 +9,14 @@ class AppAssets {
   /// assets/images/apple.png
   static const String imagesApple = "assets/images/apple.png";
 
+  /// Assets for imagesAsmi
+  /// assets/images/asmi.jpg
+  static const String imagesAsmi = "assets/images/asmi.jpg";
+
+  /// Assets for imagesAsmu
+  /// assets/images/asmu.jpg
+  static const String imagesAsmu = "assets/images/asmu.jpg";
+
   /// Assets for imagesCancel
   /// assets/images/cancel.png
   static const String imagesCancel = "assets/images/cancel.png";
@@ -117,6 +125,10 @@ class AppAssets {
   /// assets/images/notification.png
   static const String imagesNotification = "assets/images/notification.png";
 
+  /// Assets for imagesParu
+  /// assets/images/paru.jpg
+  static const String imagesParu = "assets/images/paru.jpg";
+
   /// Assets for imagesPayment
   /// assets/images/payment.png
   static const String imagesPayment = "assets/images/payment.png";
@@ -133,9 +145,25 @@ class AppAssets {
   /// assets/images/person.png
   static const String imagesPerson = "assets/images/person.png";
 
+  /// Assets for imagesRonny
+  /// assets/images/ronny.jpg
+  static const String imagesRonny = "assets/images/ronny.jpg";
+
+  /// Assets for imagesSamuna
+  /// assets/images/samuna.jpg
+  static const String imagesSamuna = "assets/images/samuna.jpg";
+
+  /// Assets for imagesSanjeep
+  /// assets/images/sanjeep.jpg
+  static const String imagesSanjeep = "assets/images/sanjeep.jpg";
+
   /// Assets for imagesSecurity
   /// assets/images/security.png
   static const String imagesSecurity = "assets/images/security.png";
+
+  /// Assets for imagesShristi
+  /// assets/images/shristi.jpg
+  static const String imagesShristi = "assets/images/shristi.jpg";
 
   /// Assets for imagesStar
   /// assets/images/star.png
